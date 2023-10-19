@@ -18,7 +18,7 @@ namespace SynthiMarkAPI.Persistence
 
             DbContextOptionsBuilder<SynthiMarkAPIDbContext> dbContextOptionsBuilder = new();
 
-            dbContextOptionsBuilder.UseNpgsql(DatabaseConfiguration.ConnectiongString);
+            dbContextOptionsBuilder.UseSqlServer(DatabaseConfiguration.ConnectiongString);
 
             return new(dbContextOptionsBuilder.Options);
         }

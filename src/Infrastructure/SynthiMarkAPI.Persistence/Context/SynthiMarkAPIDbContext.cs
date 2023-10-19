@@ -14,8 +14,16 @@ namespace SynthiMarkAPI.Persistence.Context
         {
         }
 
-        DbSet<Customer> Customers { get; set; }
+        
         DbSet<Blog> Blogs { get; set; }
+        DbSet<Advertising> Advertisings { get; set; }
+        DbSet<AdvertisingType> AdvertisingTypes { get; set; }
+        DbSet<PostIdeas> PostIdeas { get; set; }
+        DbSet<Product> Products { get; set; }
+        DbSet<Seo> Seos { get; set; }
+        DbSet<User> Users { get; set; }
+        DbSet<Video> Videos { get; set; }
+        DbSet<VideoIdeas> VideoIdeas { get; set; }
 
     }
 }

@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SynthiMarkAPI.Domain.Common;
+﻿using SynthiMarkAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace SynthiMarkAPI.Application.Interfaces.Repositories
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IVideoIdeasWriteRepository : IWriteRepository<VideoIdeas>
     {
-        DbSet<T> Table { get; }
     }
 }

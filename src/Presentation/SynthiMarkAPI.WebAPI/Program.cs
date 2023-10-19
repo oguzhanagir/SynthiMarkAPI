@@ -1,9 +1,11 @@
+using SynthiMarkAPI.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddPersistenceService();
 
 var app = builder.Build();
 

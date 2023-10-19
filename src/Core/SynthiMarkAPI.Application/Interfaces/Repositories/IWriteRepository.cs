@@ -11,8 +11,10 @@ namespace SynthiMarkAPI.Application.Interfaces.Repositories
     {
         Task<bool> AddAsync(T entity);
         Task<bool> AddRangeAsync(List<T> entities);
-        Task<bool> Remove(T entity);
-        Task<bool> Remove(string id);
-        Task<bool> UpdateAsync(T entity);
+        bool Remove(T entity);
+        Task<bool> RemoveAsync(string id);
+        bool RemoveRange(List<T> entities);
+        bool Update(T entity);
+        Task<int> SaveAsync();
     }
 }

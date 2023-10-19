@@ -18,7 +18,7 @@ namespace SynthiMarkAPI.Persistence.Configurations
                 configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/SynthiMarkAPI.WebAPI"));
                 configurationManager.AddJsonFile("appsettings.json");
 
-                return configurationManager.GetConnectionString("PostgreSQL");
+                return configurationManager.GetConnectionString("MsSQL");
             }
         }
     }
