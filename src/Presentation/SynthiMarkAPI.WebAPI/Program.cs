@@ -1,13 +1,18 @@
 using FluentValidation.AspNetCore;
 using SynthiMarkAPI.Application.ViewModels.Advertisings;
+using SynthiMarkAPI.Infrastructure;
 using SynthiMarkAPI.Infrastructure.Filters;
+using SynthiMarkAPI.Infrastructure.Services.Storage.Local;
 using SynthiMarkAPI.Persistence;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddPersistenceService();
+builder.Services.AddPersistenceServices();
+builder.Services.AddInfrastructureServices();
+
+builder.Services.AddStorage<LocalStorage>();
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 policy.AllowAnyOrigin().AllowAnyHeader().AllowCredentials()));

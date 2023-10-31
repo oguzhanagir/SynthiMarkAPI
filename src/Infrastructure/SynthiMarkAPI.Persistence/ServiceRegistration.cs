@@ -14,7 +14,7 @@ namespace SynthiMarkAPI.Persistence
 {
     public static class ServiceRegistration
     {
-        public static void AddPersistenceService(this IServiceCollection services)
+        public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<SynthiMarkAPIDbContext>(options => options.UseSqlServer(DatabaseConfiguration.ConnectiongString));
 
