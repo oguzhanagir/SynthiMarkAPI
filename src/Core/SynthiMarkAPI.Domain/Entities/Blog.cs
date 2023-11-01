@@ -14,6 +14,5 @@ namespace SynthiMarkAPI.Domain.Entities
         public string Content { get; set; }
         public string Image { get; set; }
 
-        public User User { get; set; }
     }
 }

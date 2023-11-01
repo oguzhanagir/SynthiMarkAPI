@@ -14,6 +14,5 @@ namespace SynthiMarkAPI.Domain.Entities
         public string Description { get; set; }
         public string Features { get; set; }
 
-        public User User { get; set; }
     }
 }

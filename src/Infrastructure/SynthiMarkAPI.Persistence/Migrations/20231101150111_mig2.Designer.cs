@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SynthiMarkAPI.Persistence.Context;
 
@@ -11,9 +12,11 @@ using SynthiMarkAPI.Persistence.Context;
 namespace SynthiMarkAPI.Persistence.Migrations
 {
     [DbContext(typeof(SynthiMarkAPIDbContext))]
-    partial class SynthiMarkAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231101150111_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

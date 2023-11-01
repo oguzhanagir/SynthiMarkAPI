@@ -1,6 +1,7 @@
 ﻿using SynthiMarkAPI.Domain.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,8 @@ namespace SynthiMarkAPI.Domain.Entities
         public ICollection<Advertising> Advertisings { get; set; }
         public ICollection<PostIdeas> PostIdeas { get; set; }
         public ICollection<Product> Products { get; set; }
+
+        [NotMapped]
+        public override User UserForeg { get => base.UserForeg; set => base.UserForeg = value; }
     }
 }

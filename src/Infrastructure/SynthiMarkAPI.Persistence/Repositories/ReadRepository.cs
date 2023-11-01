@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SynthiMarkAPI.Application.Interfaces.Repositories;
 using SynthiMarkAPI.Domain.Common;
+using SynthiMarkAPI.Domain.Entities;
 using SynthiMarkAPI.Persistence.Context;
 using System;
 using System.Collections.Generic;
@@ -22,25 +23,27 @@ namespace SynthiMarkAPI.Persistence.Repositories
 
 
         public DbSet<T> Table => _context.Set<T>();
-        public IQueryable<T> GetAll(bool tracking = true)
+        public IQueryable<T> GetAll(Guid userId,bool tracking = true)
         {
-            var query = Table.AsQueryable();
+            var query = Table.AsQueryable().Where(x => x.UserForeg.Id == userId);
+
+            if (!tracking)
+                query = query.AsNoTracking();
+
+            return query;
+        }
+                    
+        public IQueryable<T> GetWhere(Guid userId, Expression<Func<T, bool>> method, bool tracking = true)
+        {
+            var query = Table.Where(x => x.UserForeg.Id == userId).Where(method);
             if (!tracking)
                 query = query.AsNoTracking();
             return query;
         }
 
-        public IQueryable<T> GetWhere(Expression<Func<T, bool>> method, bool tracking = true)
+        public async Task<T> GetByIdAsync(Guid userId, string id, bool tracking = true)
         {
-            var query = Table.Where(method);
-            if (!tracking)
-                query = query.AsNoTracking();
-            return query;
-        }
-
-        public async Task<T> GetByIdAsync(string id, bool tracking = true)
-        {
-            var query = Table.AsQueryable();
+            var query = Table.AsQueryable().Where(x => x.UserForeg.Id == userId);
             if (!tracking)
                 query = Table.AsNoTracking();
             return await query.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
@@ -48,9 +51,9 @@ namespace SynthiMarkAPI.Persistence.Repositories
             
         }
 
-        public async Task<T> GetSingleAsync(Expression<Func<T, bool>> method, bool tracking = true)
+        public async Task<T> GetSingleAsync(Guid userId, Expression<Func<T, bool>> method, bool tracking = true)
         {
-            var query = Table.AsQueryable();
+            var query = Table.AsQueryable().Where(x => x.UserForeg.Id == userId);
             if(!tracking)
                 query = query.AsNoTracking();
             return await query.FirstOrDefaultAsync(method);

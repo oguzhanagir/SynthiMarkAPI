@@ -1,18 +1,18 @@
-﻿using SynthiMarkAPI.Domain.Common;
+﻿using MediatR;
+using SynthiMarkAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SynthiMarkAPI.Domain.Entities
+namespace SynthiMarkAPI.Application.Features.Commands.Advertisings.CreateAdvertising
 {
-    public class Advertising : BaseEntity
+    public class CreateAdvertisingCommandRequest : IRequest<CreateAdvertisingCommandResponse>
     {
         public string Title { get; set; }
         public string Description { get; set; }
         public AdvertisingType AdvertisingType { get; set; }
-
 
     }
 }

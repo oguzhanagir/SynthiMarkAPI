@@ -1,4 +1,5 @@
 using FluentValidation.AspNetCore;
+using SynthiMarkAPI.Application;
 using SynthiMarkAPI.Application.ViewModels.Advertisings;
 using SynthiMarkAPI.Infrastructure;
 using SynthiMarkAPI.Infrastructure.Filters;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
 
 builder.Services.AddStorage<LocalStorage>();
 

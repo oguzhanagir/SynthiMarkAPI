@@ -15,7 +15,7 @@ namespace SynthiMarkAPI.Persistence.Configurations
             {
                 ConfigurationManager configurationManager = new();
 
-                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/SynthiMarkAPI.gRPC"));
+                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/SynthiMarkAPI.WebAPI"));
                 configurationManager.AddJsonFile("appsettings.json");
 
                 return configurationManager.GetConnectionString("MsSQL");

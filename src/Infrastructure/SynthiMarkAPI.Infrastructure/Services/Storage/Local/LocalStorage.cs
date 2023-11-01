@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SynthiMarkAPI.Infrastructure.Services.Storage.Local
 {
-    public class LocalStorage : ILocalStorage
+    public class LocalStorage : Storage, ILocalStorage
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
         public LocalStorage(IWebHostEnvironment webHostEnvironment)
@@ -19,7 +19,7 @@ namespace SynthiMarkAPI.Infrastructure.Services.Storage.Local
         }
 
         public async Task DeleteAsync(string path, string fileName) => File.Delete($"{path}\\{fileName}");
-        
+
 
         public List<string> GetFiles(string path)
         {
@@ -60,11 +60,11 @@ namespace SynthiMarkAPI.Infrastructure.Services.Storage.Local
 
             foreach (var file in files)
             {
-               
+                string fileNewName = await FileRenameAsync(path, HasFile, file.FileName);
 
-               await CopyFileAsync($"{uploadPath}\\{file.Name}", file);
-                datas.Add((file.Name, $"{uploadPath}\\{file.Name}"));
-         
+                await CopyFileAsync($"{uploadPath}\\{fileNewName}", file);
+                datas.Add((fileNewName, $"{uploadPath}\\{fileNewName}"));
+
             }
 
 

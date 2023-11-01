@@ -10,6 +10,6 @@ namespace SynthiMarkAPI.Domain.Entities
     public class VideoIdeas : BaseEntity
     {
         public string Content { get; set; }
-        public User User { get; set; }
+
     }
 }
