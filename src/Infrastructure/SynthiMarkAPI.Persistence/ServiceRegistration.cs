@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SynthiMarkAPI.Application.Interfaces.Repositories;
+using SynthiMarkAPI.Domain.Entities.Identity;
 using SynthiMarkAPI.Persistence.Configurations;
 using SynthiMarkAPI.Persistence.Context;
 using SynthiMarkAPI.Persistence.Repositories;
@@ -17,6 +18,8 @@ namespace SynthiMarkAPI.Persistence
         public static void AddPersistenceServices(this IServiceCollection services)
         {
             services.AddDbContext<SynthiMarkAPIDbContext>(options => options.UseSqlServer(DatabaseConfiguration.ConnectiongString));
+
+            services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<SynthiMarkAPIDbContext>();
 
             services.AddScoped<IAdvertisingReadRepository, AdvertisingReadRepository>();
             services.AddScoped<IAdvertisingWriteRepository, AdvertisingWriteRepository>();

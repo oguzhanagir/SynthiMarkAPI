@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using SynthiMarkAPI.Application.Abstractions.Storage;
+using SynthiMarkAPI.Application.Abstractions.Token;
 using SynthiMarkAPI.Infrastructure.Enums;
 using SynthiMarkAPI.Infrastructure.Services;
 using SynthiMarkAPI.Infrastructure.Services.Storage;
@@ -17,6 +19,7 @@ namespace SynthiMarkAPI.Infrastructure
         public static void AddInfrastructureServices(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddScoped<IStorageService, StorageService>();
+            serviceCollection.AddScoped<ITokenHandler, TokenHandler>();
         }
 
         public static void AddStorage<T>(this IServiceCollection serviceCollection) where T : Storage, IStorage

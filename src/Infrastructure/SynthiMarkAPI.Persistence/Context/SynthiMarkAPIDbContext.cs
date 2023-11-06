@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SynthiMarkAPI.Domain.Common;
 using SynthiMarkAPI.Domain.Entities;
+using SynthiMarkAPI.Domain.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SynthiMarkAPI.Persistence.Context
 {
-    public class SynthiMarkAPIDbContext : DbContext
+    public class SynthiMarkAPIDbContext : IdentityDbContext<AppUser,AppRole,string>
     {
         public SynthiMarkAPIDbContext(DbContextOptions options) : base(options)
         {
@@ -22,7 +24,6 @@ namespace SynthiMarkAPI.Persistence.Context
         DbSet<PostIdeas> PostIdeas { get; set; }
         DbSet<Product> Products { get; set; }
         DbSet<Seo> Seos { get; set; }
-        DbSet<User> Users { get; set; }
         DbSet<Video> Videos { get; set; }
         DbSet<VideoIdeas> VideoIdeas { get; set; }
 

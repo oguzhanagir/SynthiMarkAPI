@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiMarkAPI.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiMarkAPI.Persistence", "src\Infrastructure\SynthiMarkAPI.Persistence\SynthiMarkAPI.Persistence.csproj", "{277402AE-75D4-4357-9B28-5A6278D9BD31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynthiMarkAPI.WebAPI", "src\Presentation\SynthiMarkAPI.WebAPI\SynthiMarkAPI.WebAPI.csproj", "{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiMarkAPI.WebAPI", "src\Presentation\SynthiMarkAPI.WebAPI\SynthiMarkAPI.WebAPI.csproj", "{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
