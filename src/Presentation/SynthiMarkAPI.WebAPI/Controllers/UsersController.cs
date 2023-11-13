@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SynthiMarkAPI.Application.Features.Commands.AppUser.CreateUser;
+using SynthiMarkAPI.Application.Features.Commands.AppUser.FacebookLogin;
+using SynthiMarkAPI.Application.Features.Commands.AppUser.GoogleLogin;
 using SynthiMarkAPI.Application.Features.Commands.AppUser.LoginUser;
 
 namespace SynthiMarkAPI.WebAPI.Controllers
@@ -24,11 +26,6 @@ namespace SynthiMarkAPI.WebAPI.Controllers
             return Ok(response);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginUserCommandRequest loginUserCommandRequest)
-        {
-            LoginUserCommandResponse response = await _mediator.Send(loginUserCommandRequest);
-            return Ok(response);
-        }
+        
     }
 }

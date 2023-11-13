@@ -1,10 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using SynthiMarkAPI.Application.Abstractions.Services;
+using SynthiMarkAPI.Application.Abstractions.Services.Authentications;
 using SynthiMarkAPI.Application.Interfaces.Repositories;
 using SynthiMarkAPI.Domain.Entities.Identity;
 using SynthiMarkAPI.Persistence.Configurations;
 using SynthiMarkAPI.Persistence.Context;
 using SynthiMarkAPI.Persistence.Repositories;
+using SynthiMarkAPI.Persistence.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,15 +42,16 @@ namespace SynthiMarkAPI.Persistence
             services.AddScoped<ISeoWriteRepository, SeoWriteRepository>();
             services.AddScoped<ISeoReadRepository, SeoReadRepository>();
 
-            services.AddScoped<IUserReadRepository, UserReadRepository>();
-            services.AddScoped<IUserWriteRepository, UserWriteRepository>();
-
             services.AddScoped<IVideoWriteRepository, VideoWriteRepository>();
             services.AddScoped<IVideoReadRepository, VideoReadRepository>();
 
             services.AddScoped<IVideoIdeasReadRepository, VideoIdeasReadRepository>();
             services.AddScoped<IVideoIdeasWriteRepository, VideoIdeasWriteRepository>();
 
+            services.AddScoped<IUserService,UserService>();
+            services.AddScoped<IAuthService,AuthService>();
+            services.AddScoped<IExternalAuthentication,AuthService>();
+            services.AddScoped<IInternalAuthentication,AuthService>();
 
 
         } 
