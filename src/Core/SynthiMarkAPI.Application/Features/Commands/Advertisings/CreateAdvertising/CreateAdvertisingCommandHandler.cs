@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SynthiMarkAPI.Application.Abstractions.Hubs;
 using SynthiMarkAPI.Application.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,11 @@ namespace SynthiMarkAPI.Application.Features.Commands.Advertisings.CreateAdverti
     public class CreateAdvertisingCommandHandler : IRequestHandler<CreateAdvertisingCommandRequest, CreateAdvertisingCommandResponse>
     {
         private readonly IAdvertisingWriteRepository _advertisingWriteRepository;
-
-        public CreateAdvertisingCommandHandler(IAdvertisingWriteRepository advertisingWriteRepository)
+        private readonly IAdvertisingHubService _advertisingHubService;
+        public CreateAdvertisingCommandHandler(IAdvertisingWriteRepository advertisingWriteRepository, IAdvertisingHubService advertisingHubService)
         {
             _advertisingWriteRepository = advertisingWriteRepository;
+            _advertisingHubService = advertisingHubService;
         }
 
         public async Task<CreateAdvertisingCommandResponse> Handle(CreateAdvertisingCommandRequest request, CancellationToken cancellationToken)
@@ -28,6 +30,8 @@ namespace SynthiMarkAPI.Application.Features.Commands.Advertisings.CreateAdverti
                //todo Buraya ekleme yaparken kullanıcı bilgisi verilmesi gerekiyor buradaki tasarım düzeltilmeli
             });
             await _advertisingWriteRepository.SaveAsync();
+
+            await _advertisingHubService.AdvertisingAddedMessageAsync($"{request.Title} isminde reklam eklenmiştir.");
 
             return new();
         }

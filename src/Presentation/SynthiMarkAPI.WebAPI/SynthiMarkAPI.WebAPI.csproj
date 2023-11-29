@@ -22,6 +22,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\SynthiMarkAPI.Infrastructure\SynthiMarkAPI.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\SynthiMarkAPI.Persistence\SynthiMarkAPI.Persistence.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\SynthiMarkAPI.SignalR\SynthiMarkAPI.SignalR.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middlewares\" />
   </ItemGroup>
 
 </Project>

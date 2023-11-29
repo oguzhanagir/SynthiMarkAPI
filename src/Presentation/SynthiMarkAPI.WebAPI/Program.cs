@@ -12,6 +12,8 @@ using SynthiMarkAPI.Infrastructure;
 using SynthiMarkAPI.Infrastructure.Filters;
 using SynthiMarkAPI.Infrastructure.Services.Storage.Local;
 using SynthiMarkAPI.Persistence;
+using SynthiMarkAPI.SignalR;
+using SynthiMarkAPI.WebAPI.Extensions;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Text;
@@ -22,12 +24,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
+builder.Services.AddSignalRServices();
 
 
 builder.Services.AddStorage<LocalStorage>();
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-policy.AllowAnyOrigin().AllowAnyHeader().AllowCredentials()));
+policy.AllowAnyOrigin().AllowAnyHeader().AllowCredentials().AllowCredentials()));
 
 var log = new LoggerConfiguration()
             .WriteTo.Console()
@@ -103,6 +106,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.ConfigureExceptionHandler<Program>(app.Services.GetRequiredService<ILogger<Program>>());
+
 app.UseSerilogRequestLogging();
 app.UseHttpLogging();
 
@@ -121,5 +126,5 @@ app.Use(async (context, next) =>
 });
 
 app.MapControllers();
-
+app.MapHubs();
 app.Run();

@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiMarkAPI.Persistence",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynthiMarkAPI.WebAPI", "src\Presentation\SynthiMarkAPI.WebAPI\SynthiMarkAPI.WebAPI.csproj", "{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynthiMarkAPI.SignalR", "src\Infrastructure\SynthiMarkAPI.SignalR\SynthiMarkAPI.SignalR.csproj", "{763E3B67-D548-478E-A28B-BC48281C01B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{763E3B67-D548-478E-A28B-BC48281C01B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{763E3B67-D548-478E-A28B-BC48281C01B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{763E3B67-D548-478E-A28B-BC48281C01B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{763E3B67-D548-478E-A28B-BC48281C01B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{2BC8886F-98CE-4DBA-8575-793CAE3DFE45} = {B5EB28A1-3113-4956-A34C-F52D086D0552}
 		{277402AE-75D4-4357-9B28-5A6278D9BD31} = {B5EB28A1-3113-4956-A34C-F52D086D0552}
 		{95EE07EF-E35C-45DE-A0AE-75F214DEF6BF} = {0638F491-CA20-411D-9561-E02EB22CA2B0}
+		{763E3B67-D548-478E-A28B-BC48281C01B4} = {B5EB28A1-3113-4956-A34C-F52D086D0552}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A420A0E1-C2B5-472A-9A47-2C0BE106E4CC}
